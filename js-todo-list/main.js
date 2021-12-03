@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function(){
   
   // Task_1 點擊任務 list 可以切換 checked class
   const container = document.querySelector('ul');
+  const input = document.querySelector('#input');
+  const addBtn = document.querySelector('#addBtn');
 
   container.addEventListener("click", (e) => {
     if (e.target && e.target.nodeName === 'LI'){
@@ -16,4 +18,13 @@ document.addEventListener("DOMContentLoaded", function(){
       e.target.parentNode.remove();
     }
   }) 
+
+  addBtn.addEventListener("click", () => {
+    const inputValue = input.value.trim();
+    console.log(inputValue);
+    const list = document.createElement('li');
+    list.innerHTML = `${ inputValue }<span class=\"close\">x</span>`;
+    container.appendChild(list);
+    input.value = "";
+  })
 })
