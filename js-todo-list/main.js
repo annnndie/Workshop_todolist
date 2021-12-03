@@ -4,16 +4,26 @@ document.addEventListener("DOMContentLoaded", () => {
   const task_input = document.querySelector("#input");
   const container = document.querySelector("#container");
   const li = document.querySelector("li");
+  const ul = document.querySelector("ul");
+  // console.log(ul.children);
+
+  // 當使用者選到某個 li 時，有 class checked 屬性
+  ul.addEventListener("click", (e) => {
+    // console.log(e.target);
+    if(e.target && e.target.className === "checked"){
+      e.target.classList.remove("checked");
+    }else{
+      e.target.classList.add("checked");
+    }
+    
+  })
 
   //移除功能
   container.addEventListener("click", (e) => {
-    console.log(e.target.nodeName);
+    // console.log(e.target.nodeName);
     if(e.target && e.target.nodeName == "SPAN"){
       e.target.parentNode.remove();
     }
-    
-    // goal = e.target.parentNode
-    // goal.remove();
   })
 
   // 按 + 新增 to do list
@@ -39,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
   task_input.addEventListener("keydown", (e) => {
     // 新增 to do list
     if(e.key == "Enter" && e.target.value != ""){
-      console.log(e.key);
+      // console.log(e.key);
       const note = document.createElement("li");
       note.className = "todoItem";
       note.innerHTML = e.target.value;
