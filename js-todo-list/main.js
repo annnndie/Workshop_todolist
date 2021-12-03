@@ -5,7 +5,12 @@ document.addEventListener("DOMContentLoaded", function(){
   const container = document.querySelector('ul');
 
   container.addEventListener("click", (e) => {
-    if (e.target.tagName === 'LI')
-    e.target.classList.add("checked")
+    if (e.target.tagName === 'LI'){
+      const li = e.target
+      if ( li.className !== "checked")
+      e.target.classList.add("checked")
+      else 
+      e.target.classList.remove("checked")
+    }
   }) 
 })
