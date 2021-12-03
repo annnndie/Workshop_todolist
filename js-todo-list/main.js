@@ -3,11 +3,6 @@ const addBtn = document.querySelector(".addBtn");
 const ul = document.querySelector("ul");
 const todoList = document.querySelector(".todoList");
 
-// const close = document.querySelector(".close");
-// console.log(close);
-// const checked = document.querySelector(".checked");
-// console.log(checked);
-
 todoList.addEventListener("click", (e) => {
   if (e.target.className === "close") {
     e.target.parentNode.remove();
@@ -22,4 +17,21 @@ ul.addEventListener("click", (e) => {
   }
 });
 
-// input.addEventListener("form", (e) => {});
+addBtn.addEventListener("click", (e) => {
+  let getValue = input.value;
+  if (getValue.trim()) {
+    const list = document.createElement("li");
+    const close = document.createElement("span");
+
+    list.className = "value";
+    list.innerHTML = getValue;
+
+    close.className = "close";
+
+    close.innerText = "x";
+
+    ul.appendChild(list);
+    list.appendChild(close);
+    input.value = "";
+  }
+});
