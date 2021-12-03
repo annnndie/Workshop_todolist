@@ -2,8 +2,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector("#addBtn");
   const task_input = document.querySelector("#input");
-  const container = document.querySelector("#container");
-  const li = document.querySelector("li");
   const ul = document.querySelector("ul");
   // console.log(ul.children);
 
@@ -19,8 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   //移除功能
-  container.addEventListener("click", (e) => {
-    // console.log(e.target.nodeName);
+  ul.addEventListener("click", (e) => {
+    console.log(e.target.parentNode);
     if(e.target && e.target.nodeName == "SPAN"){
       e.target.parentNode.remove();
     }
@@ -33,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const note = document.createElement("li");
       note.className = "todoItem";
       note.innerHTML = task_input.value;
-      container.appendChild(note);
+      ul.appendChild(note);
 
       //close btn
       const closeBtn = document.createElement("span");
@@ -53,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const note = document.createElement("li");
       note.className = "todoItem";
       note.innerHTML = e.target.value;
-      container.appendChild(note);
+      ul.appendChild(note);
 
       //close btn
       const closeBtn = document.createElement("span");
@@ -62,6 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
       note.appendChild(closeBtn);
 
     }
-
   })
+
+  // local storage
+  
+
 })
