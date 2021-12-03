@@ -6,11 +6,11 @@ v    2. 將 `master` 保護起來，禁止推 master branch
         - 到自己的 repo > Settings > Branches > Branch protection rules > add rule 設定
 v    3. 每個功能都開一個 branch 進行
         - 舉例： `feature/Complete_add_checked_task`
-    4. 完成後，發 PR 到「自己的 repo」並且自己 merge 進 `master`
-    5. 要記得 local master 的狀態也要更新喔！
+v    4. 完成後，發 PR 到「自己的 repo」並且自己 merge 進 `master`
+v    5. 要記得 local master 的狀態也要更新喔！
 
     ## 任務: 完成 To Do List 功能
-    1. 點擊任務標記是否完成
+v    1. 點擊任務標記是否完成
         - 點擊任務 list 可以切換 `checked` class
     2. 點擊 x 刪除任務
         - 點擊 `x` 可移除任務
