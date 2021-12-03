@@ -5,12 +5,15 @@ document.addEventListener("DOMContentLoaded", function(){
   const container = document.querySelector('ul');
 
   container.addEventListener("click", (e) => {
-    if (e.target.tagName === 'LI'){
+    if (e.target && e.target.nodeName === 'LI'){
       const li = e.target
       if ( li.className !== "checked")
       e.target.classList.add("checked")
       else 
       e.target.classList.remove("checked")
+    }
+    if (e.target && e.target.nodeName == "SPAN") {
+      e.target.parentNode.remove();
     }
   }) 
 })
