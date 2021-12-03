@@ -1,9 +1,9 @@
 // TO DO
 document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector("#addBtn");
-  const text = document.querySelector("#input");
+  const task_input = document.querySelector("#input");
   const container = document.querySelector("#container");
-  const close = document.querySelector(".close");
+  const li = document.querySelector("li");
 
   //移除功能
   container.addEventListener("click", (e) => {
@@ -15,13 +15,43 @@ document.addEventListener("DOMContentLoaded", () => {
     // goal = e.target.parentNode
     // goal.remove();
   })
-  
-  addBtn.addEventListener("click", (e) => {
-    // 幫 li 長 class name
-    const note = document.querySelector("li");
-    note.className = "todoItem";
-    container.appendChild(note);
 
+  // 按 + 新增 to do list
+  addBtn.addEventListener("click", (e) => {
+    if(e.target && e.target.nodeName == "SPAN" && task_input.value != ""){
+      // 新增 to do list
+      const note = document.createElement("li");
+      note.className = "todoItem";
+      note.innerHTML = task_input.value;
+      container.appendChild(note);
+
+      //close btn
+      const closeBtn = document.createElement("span");
+      closeBtn.className ="close";
+      closeBtn.innerHTML = "x";
+      note.appendChild(closeBtn);
+
+    }
+    
+  })
+
+  // 按 enter 新增 to do list
+  task_input.addEventListener("keydown", (e) => {
+    // 新增 to do list
+    if(e.key == "Enter" && e.target.value != ""){
+      console.log(e.key);
+      const note = document.createElement("li");
+      note.className = "todoItem";
+      note.innerHTML = e.target.value;
+      container.appendChild(note);
+
+      //close btn
+      const closeBtn = document.createElement("span");
+      closeBtn.className ="close";
+      closeBtn.innerHTML = "x";
+      note.appendChild(closeBtn);
+
+    }
 
   })
 })
